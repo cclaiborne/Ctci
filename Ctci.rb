@@ -56,9 +56,6 @@ class Ctci
   def one_point_five(word)
     @split_word = word.split(//)
     @final_word = ""
-    if(word.length == 1)
-      return word
-    end
     @counter = 1
     for i in 0..@split_word.length-1
       if @split_word[i+1] != @split_word[i]
@@ -79,6 +76,6 @@ test = Ctci.new
 #return false
 #puts test.one_point_one("abcabc")
 #return true
-puts test.one_point_five("aabbbc")
+puts test.one_point_five("a")
 
 
