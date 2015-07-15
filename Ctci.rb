@@ -52,15 +52,27 @@ class Ctci
     return true
   end
 
-
+  # Implement a method to perform basic string compression using
+  # the counts of repeated characters. For example, the string
+  # aabcccccaaa would become a2blc5a3. If the "compressed" string would
+  # not become smaller than the orig- inal string, your method should
+  # return the original string.
   def one_point_five(word)
     @split_word = word.split(//)
     @final_word = ""
     @counter = 1
-    for i in 0..@split_word.length-1
-      if @split_word[i+1] != @split_word[i]
-        @final_word << @split_word[i]
-        @final_word << @counter.to_s
+    if word.length == 1
+      return word
+    end
+    for i in 0..@split_word.length-2
+      if i == @split_word.length - 2
+        @counter = @counter + 1
+        @final_word << @split_word[i] << @counter.to_s
+        if(@split_word[i] != @split_word[i+1])
+          @final_word << @split_word[i+1]
+        end
+      elsif @split_word[i+1] != @split_word[i]
+        @final_word << @split_word[i] << @counter.to_s
         @counter = 1
       else
         @counter = @counter + 1
@@ -76,6 +88,6 @@ test = Ctci.new
 #return false
 #puts test.one_point_one("abcabc")
 #return true
-puts test.one_point_five("a")
+puts test.one_point_five("abbccccc")
 
 
