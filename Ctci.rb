@@ -66,7 +66,6 @@ class Ctci
     end
     for i in 0..@split_word.length-2
       if i == @split_word.length - 2
-        @counter = @counter + 1
         @final_word << @split_word[i] << @counter.to_s
         if(@split_word[i] != @split_word[i+1])
           @final_word << @split_word[i+1]
@@ -88,6 +87,6 @@ test = Ctci.new
 #return false
 #puts test.one_point_one("abcabc")
 #return true
-puts test.one_point_five("abbccccc")
+puts test.one_point_five("abbbcccccd")
 
 
