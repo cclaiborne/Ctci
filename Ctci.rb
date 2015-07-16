@@ -57,7 +57,7 @@ class Ctci
   # aabcccccaaa would become a2blc5a3. If the "compressed" string would
   # not become smaller than the orig- inal string, your method should
   # return the original string.
-  def one_point_five(word)
+ def one_point_five(word)
     @split_word = word.split(//)
     @final_word = ""
     @counter = 1
@@ -87,6 +87,6 @@ test = Ctci.new
 #return false
 #puts test.one_point_one("abcabc")
 #return true
-puts test.one_point_five("abbbcccccd")
+puts test.one_point_five("aab")
 
 
