@@ -40,19 +40,47 @@ class Chapter2
       @current = @current.next
     end
   end
+
+  #Write code to partition a linked list around a value x, such that all
+  #nodes less than x come before all nodes greater than or equal to x.
+  def two_point_four(head, n)
+    @current = head
+    @o1 = nil
+    @p1 = nil
+    @current_o = nil
+    @current_p = nil
+    @o_flag = false
+    @p_plag = false
+    while(@current != nil)
+      if(@current.data < n && !@o_flag)
+        @o1 = Node.new(@current.data, nil)
+        @current_o = @o1
+        @o_flag = true
+      elsif(@current.data >= n && !@p_flag)
+        @p1 = Node.new(@current.data, nil)
+        @current_p = @p1
+        @p_flag = true
+      elsif(@current.data < n && @o_flag)
+        @current_o.next = Node.new(@current.data, nil)
+        @current_o = @current_o.next
+      elsif(@current.data >= n && @p_flag)
+        @current_p.next = Node.new(@current.data, nil)
+        @current_p = @current_p.next
+      end
+      @current = @current.next
+    end
+  @current_o.next = @p1
+  end
 end
 
-n1 = Node.new("a", nil)
-n2 = Node.new("b", nil)
-n3 = Node.new("a", nil)
-n4 = Node.new("c", nil)
+n1 = Node.new(1, nil)
+n2 = Node.new(2, nil)
+n3 = Node.new(4, nil)
+n4 = Node.new(1, nil)
 
 n1.next = n2
 n2.next = n3
 n3.next = n4
 
 c2 = Chapter2.new
-#duplicates_removed = c2.two_point_one(n1)
-#n3 should be removed, thus n4 is printed
-#puts duplicates_removed.next.next.data
-puts c2.two_point_two(n1, 2).data
+c2.two_point_four(n1, 3)
