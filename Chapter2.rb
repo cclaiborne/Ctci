@@ -70,17 +70,26 @@ class Chapter2
       @current = @current.next
     end
   @current_o.next = @p1
+  return @o1
   end
 end
 
-n1 = Node.new(1, nil)
-n2 = Node.new(2, nil)
-n3 = Node.new(4, nil)
-n4 = Node.new(1, nil)
+n1 = Node.new(85675312, nil)
+n2 = Node.new(93123, nil)
+n3 = Node.new(419312, nil)
+n4 = Node.new(22, nil)
+n5 = Node.new(412, nil)
+n6 = Node.new(216456123, nil)
+n7 = Node.new(432423, nil)
+n8 = Node.new(1123, nil)
 
 n1.next = n2
 n2.next = n3
 n3.next = n4
+n4.next = n5
+n5.next = n6
+n6.next = n7
+n7.next = n8
 
 c2 = Chapter2.new
-c2.two_point_four(n1, 3)
+@partitioned_list = c2.two_point_four(n1, 10000)
