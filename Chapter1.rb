@@ -23,29 +23,29 @@ class Ctci
     if (s1.length != s2.length)
       return false
     end
-    @split_s1.each do |i|
-      if (!h1.has_key?(i))
-        h1[i] = 1
+    @split_s1.each do |letter|
+      if (!h1.has_key?(letter))
+        h1[letter] = 1
       else
-        @value = h1.fetch(i)
+        @value = h1.fetch(letter)
         @value = @value + 1
-        h1[i] = @value
+        h1[letter] = @value
       end
     end
-    @split_s2.each do |i|
-      if (!h1.has_key?(i))
+    @split_s2.each do |letter|
+      if (!h1.has_key?(letter))
         return false
       else
-        @value = h1.fetch(i)
+        @value = h1.fetch(letter)
         @value = @value - 1
         if(@value == -1)
           return false
         end
-        h1[i] = @value
+        h1[letter] = @value
       end
     end
-    @split_s1.each do |i|
-      if (h1.fetch(i) != 0)
+    @split_s1.each do |letter|
+      if (h1.fetch(letter) != 0)
         return false
       end
     end
@@ -87,6 +87,5 @@ test = Ctci.new
 #return false
 #puts test.one_point_one("abcabc")
 #return true
-puts test.one_point_five("aab")
 
 
